@@ -20,7 +20,7 @@ hintContent: '<div class="hint-map">Тверской бул., Дом 13, кор�
 // Необходимо указать данный тип макета.
 iconLayout: 'default#image',
 // Своё изображение иконки метки.
-iconImageHref: '../img/map-icon.svg',
+iconImageHref: './img/map-icon.svg',
 // Размеры метки.
 // iconImageSize: [100, 42],
 iconImageSize: [60, 60],
