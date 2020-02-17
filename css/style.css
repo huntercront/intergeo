@@ -137,7 +137,7 @@ transition:box-shadow .2s ease,background .2s ease-out,transform .3s ease;
 }
 .right-col{
 	margin-left: auto;
-
+overflow: hidden;
 }
 .left-col{
 	position: fixed;
@@ -268,7 +268,7 @@ transition:box-shadow .2s ease,background .2s ease-out,transform .3s ease;
 .menu-icon-active .down-line{
 	transform: translate(0px,-3px) rotate(-45deg);
 }
-.lang-selector{
+/* .lang-selector{
 	margin-right: 65px;
 	position: relative;
 	z-index: 200;
@@ -309,7 +309,7 @@ transform: rotate(180deg);
 }
 .lang-active:hover{
 background-color: rgb(245, 244, 244);
-}
+} */
 .main-nav{
 	display: none;
 	position: fixed;
