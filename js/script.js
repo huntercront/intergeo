@@ -83,7 +83,6 @@ function getScrollBarWidth () {
     return 100 - widthWithScroll;
 };
 var scrollWidth = getScrollBarWidth ();
-console.log(scrollWidth)
 $('.menu-icon').on('click',function(event){
 	$(this).toggleClass('menu-icon-active');
 	$('.main-nav').fadeToggle();
@@ -104,48 +103,52 @@ window.onresize = function() {
 	if($('.nav-overley').hasClass('nav-overley-active')){
 	if (window.innerWidth > 464) { 	
 		$('body').removeClass('not-scroll')
+
 }else{
-		$('body').addClass('not-scroll')
+		$('body').addClass('not-scroll');
+		$('.header').addClass('fixed-header')
 }
 	}}
 
 
 var lastScrollTop = 0;
-		
+	
 $(window).scroll(function(event) {
 
 	var posit = $(this).scrollTop();
-	if($(this).scrollTop()>100){
-	if(posit > lastScrollTop) {
-		$('.header').removeClass('fixed-header');
+	if (window.matchMedia("(max-width: 1024px)").matches && !($('.nav-overley').hasClass('nav-overley-active'))) {	
 		$('.header').addClass('top-header');
-		setTimeout(function () {
-			$('.header').css('position','absolute');
-			$('.header').removeClass('bg-header');
-			}, 200);	
-	} else {
-
-		$('.header').addClass('fixed-header');
-		$('.header').addClass('bg-header');
-		$('.header').removeClass('top-header');
-		$('.header').css('position','fixed');		
+		if(posit > lastScrollTop ) {
+			$('.header').removeClass('fixed-header');
+		
+		} else {
+	
+			$('.header').addClass('fixed-header');
+		}
+	
+		lastScrollTop = posit;
 	}
-}
-else{
-	$('.header').removeClass('fixed-header');
-	$('.header').addClass('top-header');
-	setTimeout(function () {
-		$('.header').css('position','absolute');
-		$('.header').removeClass('bg-header');
-		}, 200);
-}
-	lastScrollTop = posit;
+
+
 	
 });
-
 
 
 $(".selector-nav-contacts").css({
 	"left":$('.nav-items-active').position().left + "px", 
 	"width": $('.nav-items-active').innerWidth() + "px"
 });
+
+
+new Siema({
+	selector: '.left-col-slider-wrapper',
+	duration: 200,
+	easing: 'ease-out',
+	perPage: 1,
+	startIndex: 0,
+	draggable: true,
+	multipleDrag: false,
+	threshold: 20,
+	loop: true,
+	rtl: false,
+  });

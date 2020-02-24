@@ -151,8 +151,35 @@ overflow: hidden;
 	background-repeat: no-repeat;
 	padding: 60px 50px;
 }
-.left-content{
+.left-col-slider{
+	padding: 0;
+	position: fixed;
+	left:0;
+	top:0;
 	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-start;
+	height: 100vh;
+}
+.left-col-slider-wrapper{
+	width: 100%;
+}
+.left-col-slider .left-content{
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	padding: 60px 50px;
+}
+.slider-arrows{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.left-content{
+	height: 100vh;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -197,7 +224,16 @@ overflow: hidden;
 .logo{
 	width: 182px;
 }
-.logo img{
+
+.logo-text{
+	fill: #fff;
+	transition: 250ms ease;
+}
+.logo-icon{
+	fill:#04c8b4;
+	transition: 250ms ease;
+}
+.logo svg{
 	width: 100%;
 }
 
@@ -648,18 +684,60 @@ opacity: 0.5;
 		width: 45%;
 		padding-left: 25px;
 	}
-	.right-col,.header-right{
+	.left-col-slider{
+		width: 45%;
+	}
+	.right-col,.header-right,.main-nav{
 		width:55%;
+	}
+	.main-nav{
+		left: auto;
+		right: 0;
 	}
 	.header-right col{
 padding-right: 25px;
 	}
+
 }
 @media(max-width:1024px){
+	.main-nav{
+		height: 100vh;
+	}
+	.top-header{
+		transform: translate(0,-100%);
+		transition: transform 200ms ease-in;
+		background: #ffffff;
+	}
+	.top-header .logo-text{
+		fill: #000000;
+	}
+	.top-header .down-line,.top-header .midle-line,.top-header .up-line{
+		background: #000000;
+	}
+	.fixed-header{
+		transform: translate(0,0%);
+	}
 .left-col{
 	position: relative;
 	width: 100%;
-	padding-top:250px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top:280px;
+}
+.header-left{
+	padding-left: 50px;
+}
+ .header-right{
+	padding-right: 50px;
+}
+.header{
+	height: 60px;
+}
+.logo{
+	width: 150px;
+}
+.post-img{
+	height: 220px;
 }
 .right-col{
 	width: 100%;
@@ -714,7 +792,7 @@ font-size: 24px;
 	}
 	.left-col{
 		padding: 70px 3%; 
-		padding-top: 150px;
+		padding-top: 280px;
 	}
 	.header-left{
 		padding-left: 3%;
@@ -787,7 +865,7 @@ width: 120px;
 	}
 	.left-col{
 		padding: 50px 3%;
-padding-top: 175px;
+padding-top: 275px;
 
 	}
 	.nav-contacts-link{
@@ -846,21 +924,15 @@ padding-top: 175px;
 	}
 	.header{
 		height: 50px;
-		position: absolute;
-		background: transparent;
+		position: fixed;
+		transition:200ms ease-in;
 	}
 	.menu-icon{
 		margin-right: 0px;
 	}
-	.fixed-header{
-		animation:slideDown 200ms ease-in;
-	}
-	.top-header{
-		animation:slideUp 200ms ease-in;
-	}
-.bg-header{
-	background: #0056b3;
-}
+
+
+
 	@keyframes slideUp {
 		0%{
 			transform: translate(0,0%);
