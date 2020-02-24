@@ -90,6 +90,9 @@ $('.menu-icon').on('click',function(event){
 	if (window.matchMedia("(max-width: 464px)").matches) {
 		$('body').toggleClass('not-scroll')
 	  } 
+	  if (window.matchMedia("(max-width: 1024px)").matches && !($('.header').hasClass('top-header'))) {
+		$('.header').addClass('top-header fixed-header')
+	  } 
 })
 $('.nav-overley').on('click',function(event){
 	$('.menu-icon').toggleClass('menu-icon-active');
