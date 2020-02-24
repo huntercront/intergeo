@@ -177,9 +177,29 @@ overflow: hidden;
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	display: flex;
+	justify-content: flex-start;
+}
+.arrows{
+	width: 44px;
+	height: 40px;
+	background-color: rgba(4, 200, 180,0.3);
+	transition: background-color 250ms ease-in;
+	flex: 0 0 44px;
+	padding: 10px 9px;
+}
+.arrows:hover{
+	background-color: rgba(4, 200, 180,0.7);
+	cursor: pointer;
+}
+.arrows img{
+	width: 100%;
+}
+.prev-slide{
+	transform: rotate(-180deg);
 }
 .left-content{
-	height: 100vh;
+	height: 100%;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -188,6 +208,9 @@ overflow: hidden;
 	align-items: flex-start;
 	align-content: flex-start;
 
+}
+.left-col-slider .left-content{
+	height: 100vh;
 }
 .container{
 	width: 100%;
@@ -299,9 +322,7 @@ overflow: hidden;
 	opacity: 0.8;
 	background-color: rgb(245, 244, 244);
 }
-.menu-icon-active{
-	/* transform: rotate(-180deg); */
-}
+
 .menu-icon-active .midle-line{
 	opacity: 0;
 	transform: translate(10px,0);
@@ -679,6 +700,7 @@ opacity: 0.5;
 @media(max-width:1180px){
 	.container{
 		padding: 50px 25px;
+		padding-top:110px;
 	}
 	.left-col,.header-left{
 		width: 45%;
@@ -697,11 +719,18 @@ opacity: 0.5;
 	.header-right col{
 padding-right: 25px;
 	}
+	.left-col-slider .left-content{
+		padding-left: 25px;
+	}
 
 }
 @media(max-width:1024px){
 	.main-nav{
 		height: 100vh;
+	}
+	.left-col-slider{
+		position: relative;
+		width: 100%;
 	}
 	.top-header{
 		transform: translate(0,-100%);
@@ -717,7 +746,10 @@ padding-right: 25px;
 	.fixed-header{
 		transform: translate(0,0%);
 	}
-.left-col{
+	.left-col-slider .left-content,.left-col-slider{
+		height: auto;
+	}
+.left-col,.left-col-slider .left-content{
 	position: relative;
 	width: 100%;
 	padding-left: 50px;
@@ -790,7 +822,7 @@ font-size: 24px;
 	.container{
 		padding: 30px 3%; 
 	}
-	.left-col{
+	.left-col,.left-col-slider .left-content{
 		padding: 70px 3%; 
 		padding-top: 280px;
 	}
@@ -815,6 +847,12 @@ width: 120px;
 		}
 }
 @media(max-width:464px){
+	.arrows{
+		width: 30px;
+		flex:0 0 30px;
+		height: 26px;
+		padding: 6px 8px;
+	}
 	.project-tiitle{
 		margin-bottom: 14px;
 	}

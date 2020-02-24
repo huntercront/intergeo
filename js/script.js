@@ -140,7 +140,7 @@ $(".selector-nav-contacts").css({
 });
 
 
-new Siema({
+var heroSlider = new Siema({
 	selector: '.left-col-slider-wrapper',
 	duration: 200,
 	easing: 'ease-out',
@@ -152,3 +152,5 @@ new Siema({
 	loop: true,
 	rtl: false,
   });
+  document.querySelector('.prev-slide').addEventListener('click', () => heroSlider.prev());
+document.querySelector('.next-slide').addEventListener('click', () => heroSlider.next());
