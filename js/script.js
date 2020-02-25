@@ -71,7 +71,7 @@ $(".nav-contacts-link").on("click",function(e){
 })
 
 });
-});
+
 
 
 
@@ -83,6 +83,7 @@ function getScrollBarWidth () {
     return 100 - widthWithScroll;
 };
 var scrollWidth = getScrollBarWidth ();
+
 $('.menu-icon').on('click',function(event){
 	$(this).toggleClass('menu-icon-active');
 	$('.main-nav').fadeToggle();
@@ -157,3 +158,21 @@ var heroSlider = new Siema({
   });
   document.querySelector('.prev-slide').addEventListener('click', () => heroSlider.prev());
 document.querySelector('.next-slide').addEventListener('click', () => heroSlider.next());
+
+
+
+headers = $('.ms-rtestate-field h2'),
+output = $('<ul class="article-items-list">');
+headers.each(function (index) {
+if (this.id === '') {
+	this.id = 'id' + index;
+}
+output.append(
+	$('<li class="article-item">').append(
+		$('<a>', { href: '#' + this.id , class: 'item-link' }
+		).text($(this).text())
+		));
+});
+
+
+});
