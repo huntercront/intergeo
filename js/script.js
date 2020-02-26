@@ -143,7 +143,7 @@ $(".selector-nav-contacts").css({
 	"width": $('.nav-items-active').innerWidth() + "px"
 });
 
-
+if($('.col').hasClass('left-col-slider')){
 var heroSlider = new Siema({
 	selector: '.left-col-slider-wrapper',
 	duration: 200,
@@ -158,7 +158,7 @@ var heroSlider = new Siema({
   });
   document.querySelector('.prev-slide').addEventListener('click', () => heroSlider.prev());
 document.querySelector('.next-slide').addEventListener('click', () => heroSlider.next());
-
+}
 
 
 headers = $('.ms-rtestate-field h2'),
@@ -174,5 +174,132 @@ output.append(
 		));
 });
 
+
+
+//anchor-js
+$('[data-anchor=true]').click(function() {
+	var elementClick = $(this).attr("href")
+	var destination = ($(elementClick).offset().top - 65);
+	jQuery("html:not(:animated),body:not(:animated)").animate({
+		scrollTop: destination
+	}, 500);
+	return false;
+});
+
+
+//modal-js
+function getScrollBarWidth () {
+	var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+			widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+	$outer.remove();
+	return 100 - widthWithScroll;
+};
+var scrollWidth = getScrollBarWidth ();
+console.log(scrollWidth)
+
+// $('#scroll-check').remove();
+
+
+
+$('[data-open-modal]').on('click',function(event){
+event.preventDefault();
+$('[data-modal='+ $(this).attr('data-open-modal') +']').addClass('open-modal');
+$('[data-modal='+ $(this).attr('data-open-modal') +']').css({
+	"display":"block"
+})
+$('body').css({
+	"overflow":"hidden",
+	"padding-right":scrollWidth + "px"
+})
+$('body').append('<div class="overlay"></div>');
+$('.header').css('padding-right',scrollWidth+'px')
+})
+$('.modal').on('click',function(event){
+event.stopPropagation();
+$('.modal').removeClass('open-modal')
+$('.modal').css({
+	"display":"none"
+})
+$('body').css({
+	"overflow":"auto",
+	"padding-right":0 + "px"
+})
+$('.header').css('padding-right',0+'px')
+}).children()
+	.click(function(e){ 
+			e.stopPropagation();
+})
+
+$('.close-button').on('click',function(event){
+event.stopPropagation();
+$('.modal').removeClass('open-modal')
+$('.modal').css({
+	"display":"none"
+})
+$('body').css({
+	"overflow":"auto",
+	"padding-right":0 + "px"
+})
+$('.header').css('padding-right',0+'px')
+})
+
+jQuery(document).on('keyup',function(evt) {
+if (evt.keyCode == 27) {
+	 if($('.modal').has('onen-modal')){
+		$('.modal').removeClass('open-modal')
+		$('.modal').css({
+			"display":"none"
+		})
+		$('body').css({
+			"overflow":"auto",
+			"padding-right":0 + "px"
+		})
+		$('.header').css('padding-right',0+'px')
+	 }
+}
+});
+
+
+//ripple
+  // MAD-RIPPLE // (jQ+CSS)
+  $(document).on("mousedown", "[data-ripple]", function(e) {
+    
+    var $self = $(this);
+    
+    if($self.is(".btn-disabled")) {
+      return;
+    }
+    if($self.closest("[data-ripple]")) {
+      e.stopPropagation();
+    }
+    
+    var initPos = $self.css("position"),
+        offs = $self.offset(),
+        x = e.pageX - offs.left,
+        y = e.pageY - offs.top,
+        dia = Math.min(this.offsetHeight, this.offsetWidth, 100), // start diameter
+        $ripple = $('<div/>', {class : "ripple",appendTo : $self });
+    
+    if(!initPos || initPos==="static") {
+      $self.css({position:"relative"});
+    }
+    
+    $('<div/>', {
+      class : "rippleWave",
+      css : {
+        background: $self.data("ripple"),
+        width: dia,
+        height: dia,
+        left: x - (dia/2),
+        top: y - (dia/2),
+      },
+      appendTo : $ripple,
+      one : {
+        animationend : function(){
+          $ripple.remove();
+        }
+      }
+    });
+  });
 
 });

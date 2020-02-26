@@ -318,11 +318,22 @@ overflow: hidden;
 	transition:transform 250ms ease-in-out,opacity 250ms ease,background-color 250ms ease;
 	border-radius: 5px;
 }
-.menu-icon:hover{
-	opacity: 0.8;
-	background-color: rgb(245, 244, 244);
+@media (min-width:1024px){
+	.menu-icon:hover{
+		opacity: 0.8;
+		background-color: rgba(245, 244, 244,1);
+	}
 }
-
+@media (max-width:1024px){
+	.menu-icon:hover{
+		opacity: 0.8;
+		background-color: rgba(245, 244, 244,0.2);
+	}
+}
+.top-header .menu-icon:hover{
+	opacity: 0.8;
+	background-color: rgba(245, 244, 244,0.9);
+}
 .menu-icon-active .midle-line{
 	opacity: 0;
 	transform: translate(10px,0);
@@ -1199,4 +1210,130 @@ margin-top: 0;
 	.contacts-col-map .map {
     height: 220px;
 }
+}
+
+
+
+/* mofal-css */
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1050;
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	outline: 0;
+	background-color: rgba(33, 37, 41, 0.7);
+
+}
+.modal-dialog{
+	max-width: 450px;
+	margin: 1.75rem auto;
+	position: relative;
+    width: auto;
+		pointer-events: none;
+		min-height: calc(100% - 3.5rem);
+		display: flex;
+		align-items: center;
+		align-content: center;
+}
+.modal-content{
+	position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: .3rem;
+    outline: 0;
+}
+.modal.open-modal{
+	animation: fadein .15s linear;
+	transition-property: opacity;
+}
+@keyframes fadein{
+	0%{
+opacity: 0;
+	}
+	100%{
+opacity: 1;
+	}
+}
+.modal-dialog{
+	transition: 150ms;
+}
+.open-modal .modal-dialog{
+	animation: translateDown .35s linear forwards;
+}
+
+@keyframes translateDown{
+	0%{
+    opacity: 0;
+    transform: scale(1) translate3d(0,15%,0);
+  }
+
+
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
+.close-button{
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.close-button svg{
+	fill: #333333;
+	width: 100%;
+	transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 250ms;
+	opacity: 0.5;
+}
+.close-button svg:hover{
+	fill: #04C8B4;
+	cursor: pointer;
+	opacity: 1;
+}
+.modal-content{
+	padding: 20px 30px; 
+}
+
+
+/* MAD-RIPPLE EFFECT */
+.ripple{
+  position: absolute;
+  top:0; left:0; bottom:0; right:0;
+  overflow: hidden;
+  -webkit-transform: translateZ(0); /* to contain zoomed ripple */
+  transform: translateZ(0);
+  border-radius: inherit; /* inherit from parent (rounded buttons etc) */
+  pointer-events: none; /* allow user interaction */
+   animation: ripple-shadow 0.4s forwards;
+}
+.rippleWave{
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0.7); -webkit-transform: scale(0.7);
+  background: rgba(255,255,255, 1);
+  opacity: 0.45;
+  animation: ripple 2s forwards;
+}
+@keyframes ripple-shadow {
+  0%   {box-shadow: 0 0 0 rgba(0,0,0,0.0);}
+  20%  {box-shadow: 0 4px 16px rgba(0,0,0,0.3);}
+  100% {box-shadow: 0 0 0 rgba(0,0,0,0.0);}
+}
+
+@keyframes ripple {
+  to {transform: scale(24); opacity:0;}
 }
