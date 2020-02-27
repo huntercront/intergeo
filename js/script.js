@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	ymaps.ready(function () {
 var myMap = new ymaps.Map('map', {
 	center: [55.76054506898901,37.5994625],
-zoom: 15,
+zoom: 13,
 controls: ['zoomControl'],
 behaviors: ['drag']
 }),
@@ -14,7 +14,7 @@ MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
 ),
 
 myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-hintContent: '<div class="hint-map">Тверской бул., Дом 13, корпус 1, Москва, Россия, 123104</div>',
+hintContent: '<div class="hint-map">г. Москва Тверской бульвар 13 с.1 офис 654</div>',
 }, {
 
 
@@ -25,8 +25,8 @@ iconImageHref: './img/map-icon.svg',
 iconImageSize: [60, 60],
 iconImageOffset: [-35, -35]
 }),
-myPlacemark3 = new ymaps.Placemark([54.584222181163646,36.38552449999999], {
-	hintContent: '<div class="hint-map">Moscow</div>',
+myPlacemark3 = new ymaps.Placemark([56.03553156871068,92.93068899999997], {
+	hintContent: '<div class="hint-map">г.Красноярск ул Партизана Железняка 35А</div>',
 
 }, {
 		iconLayout: 'default#image',
@@ -54,7 +54,7 @@ $(".nav-contacts-link").on("click",function(e){
 	if($(this).attr('data-select')==1){
 		myMap.geoObjects
 		.remove(myPlacemark3)
-		myMap.setCenter([40, 50], 3, {
+		myMap.setCenter([55.76054506898901,37.5994625], 13, {
 			checkZoomRange: true
 	});
 		myMap.geoObjects
@@ -63,7 +63,7 @@ $(".nav-contacts-link").on("click",function(e){
 	else{
 		myMap.geoObjects
 		.remove(myPlacemark)
-		myMap.setCenter([55.76054506898901,37.5994625], 2,{});
+		myMap.setCenter([56.03553156871068,92.93068899999997], 13,{});
 		myMap.geoObjects
 		.add(myPlacemark3)
 	}
@@ -156,8 +156,14 @@ var heroSlider = new Siema({
 	loop: true,
 	rtl: false,
   });
-  document.querySelector('.prev-slide').addEventListener('click', () => heroSlider.prev());
-document.querySelector('.next-slide').addEventListener('click', () => heroSlider.next());
+//   document.querySelector('.prev-slide').addEventListener('click', () => heroSlider.prev());
+// document.querySelector('.next-slide').addEventListener('click', () => heroSlider.next());
+$('.prev-slide').click(function() {
+	heroSlider.prev()
+})
+$('.next-slide').click(function() {
+	heroSlider.next()
+})
 }
 
 
@@ -195,7 +201,6 @@ function getScrollBarWidth () {
 	return 100 - widthWithScroll;
 };
 var scrollWidth = getScrollBarWidth ();
-console.log(scrollWidth)
 
 // $('#scroll-check').remove();
 
@@ -213,6 +218,11 @@ $('body').css({
 })
 $('body').append('<div class="overlay"></div>');
 $('.header').css('padding-right',scrollWidth+'px')
+if(window.matchMedia("(min-width: 1024px)").matches){
+$('.left-col').css('width',$('.left-col').innerWidth()-scrollWidth/2 +'px')
+}
+
+
 })
 $('.modal').on('click',function(event){
 event.stopPropagation();
@@ -225,6 +235,11 @@ $('body').css({
 	"padding-right":0 + "px"
 })
 $('.header').css('padding-right',0+'px')
+if(window.matchMedia("(min-width: 1024px)").matches){
+	$('.left-col').attr('style','')
+	}
+
+
 }).children()
 	.click(function(e){ 
 			e.stopPropagation();
@@ -241,6 +256,9 @@ $('body').css({
 	"padding-right":0 + "px"
 })
 $('.header').css('padding-right',0+'px')
+if(window.matchMedia("(min-width: 1024px)").matches){
+	$('.left-col').attr('style','')
+	}
 })
 
 jQuery(document).on('keyup',function(evt) {
@@ -255,6 +273,9 @@ if (evt.keyCode == 27) {
 			"padding-right":0 + "px"
 		})
 		$('.header').css('padding-right',0+'px')
+		if(window.matchMedia("(min-width: 1024px)").matches){
+			$('.left-col').attr('style','')
+			}
 	 }
 }
 });
