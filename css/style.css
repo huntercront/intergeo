@@ -698,7 +698,7 @@ opacity: 0.5;
 }
 @keyframes fadeinTranslate{
 	0% {
-	transform: translate(3%,3%);
+	transform: translate(3%,0);
     opacity: 0;
 }
 100% {
@@ -899,9 +899,9 @@ width: 120px;
 		line-height: 20px;
 	}
 	.arrows{
-		width: 30px;
-		flex:0 0 30px;
-		height: 26px;
+		width: 34px;
+		flex:0 0 34px;
+		height: 28px;
 		padding: 6px 8px;
 	}
 	.project-tiitle{
@@ -957,6 +957,9 @@ width: 120px;
 		padding: 50px 3%;
 padding-top: 275px;
 
+	}
+	.left-col-slider .left-content{
+		padding-bottom: 50px;
 	}
 	.nav-contacts-link{
 		font-size: 15px;
