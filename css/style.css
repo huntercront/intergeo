@@ -93,6 +93,7 @@ margin-bottom: 0;
 	align-items: center;
 	align-content: center;
 }
+
 .d-fc-c{
 	display: flex;
 	justify-content: center;
@@ -663,6 +664,7 @@ opacity: 0.5;
 	font-size: 18px;
 	position: relative;
 	transition: color 250ms ease;
+	border-radius: 2px
 }
 .nav-contacts-link:hover{
 	color:#000000;
@@ -696,12 +698,22 @@ opacity: 0.5;
 }
 @keyframes fadeinTranslate{
 	0% {
-	transform: translate(3%,0);
+	transform: translate(3%,3%);
     opacity: 0;
 }
 100% {
 	transform: translate(0%,0);
     opacity: 1;
+}
+}
+@keyframes fadeoutTranslate{
+	0% {
+	transform: translate(0%,0);
+    opacity: 1;
+}
+100% {
+	transform: translate(3%,0);
+    opacity: 0;
 }
 }
 .contacts-tab{
@@ -785,6 +797,9 @@ padding-right: 25px;
 }
 .post-img{
 	height: 220px;
+}
+.post-img img{
+	height: 120%;
 }
 .right-col{
 	width: 100%;
@@ -874,6 +889,9 @@ width: 120px;
 		}
 }
 @media(max-width:464px){
+	.more-link{
+		font-size: 15px;
+	}
 	.sub-item.h3{
 		font-size: 14px;
 		margin-top: 10px;
@@ -1036,9 +1054,6 @@ padding-top: 275px;
 	fill: #000000;
 }
 @media(min-width:1024px){
-
-
-
 .s-header .logo{
 	width: 160px;
 }
@@ -1293,6 +1308,18 @@ opacity: 1;
     transform: scale(1) translate3d(0,0,0);
   }
 }
+@keyframes translateUp{
+	0%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0%,0);
+  }
+
+
+  100%{
+    opacity: 0;
+    transform: scale(1) translate3d(0,15%,0);
+  }
+}
 
 .close-button{
 	width: 15px;
@@ -1345,3 +1372,61 @@ opacity: 1;
 @keyframes ripple {
   to {transform: scale(24); opacity:0;}
 }
+
+
+/* cookies */
+.cookies-accept{
+	border: none;
+	outline: none;
+	padding: 10px 18px;
+	font-size: 14px;
+}
+.cookies-accept:active,.cookies-accept:focus{
+	outline: none;
+	border: none;
+}
+.cookies-atention{
+	width: 340px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	display: none;
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25)
+}
+.cookies-atention-active{
+	display: block;
+	animation:translateDown 350ms ease-out;
+}
+.cookies-atention-animate{
+	animation: translateUp 350ms ease-out;
+	opacity: 0;
+}
+.cookies-descr{
+	font-size: 15px;
+}
+.cookies-read-more{
+	font-size: 14px;
+	margin-right: 1rem;
+}
+.cookies-read-more .more-link-icon{
+flex: 0 0 12px;
+width: 12px;
+height: 12px;
+}
+.cookies-atention-wrapper{
+	flex-direction: column;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 10px 15px;
+}
+@media(max-width:464px){
+	.cookies-atention{
+		width: 100%;
+		right: 0;
+		bottom: 0;
+		border-top-left-radius: 10px;
+	}
+	}
