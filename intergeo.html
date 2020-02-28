@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Istok+Web:700|Ubuntu&display=swap&subset=cyrillic" rel="stylesheet">
+	<link rel="preconnect" href="//api-maps.yandex.ru">
+	<link rel="dns-prefetch" href="//api-maps.yandex.ru">
+	<title>Интергео</title>
+</head>
+<body>
+
+	<header class="header">
+
+		<div class="header-left col">
+			<a href="./index.html" class="logo d-fs-s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 34"fill="none"><path class="logo-text" d="M49.687 11.403h2.576v11.13h-2.576v-11.13zm10.243 2.45c1.06 0 1.913.318 2.56.954.657.636.986 1.58.986 2.83v4.898h-2.48v-4.516c0-.678-.148-1.182-.445-1.5-.297-.34-.726-.5-1.288-.5-.625 0-1.124.196-1.495.588-.37.382-.557.954-.557 1.717v4.23h-2.48V13.98h2.37v1.002c.33-.36.737-.636 1.224-.827.488-.2 1.023-.302 1.606-.302zm11.3 8.268a2.65 2.65 0 0 1-.906.413c-.35.085-.72.127-1.113.127-1.018 0-1.807-.26-2.37-.78-.55-.52-.827-1.283-.827-2.3v-3.514h-1.32V14.17h1.32v-2.083h2.48v2.083h2.13v1.908h-2.13v3.482c0 .36.1.64.27.843.2.2.456.286.795.286.392 0 .726-.106 1.002-.318l.668 1.75zm9.5-3.832c0 .032-.016.255-.048.668H74.23a2.01 2.01 0 0 0 .827 1.256c.435.306.975.46 1.622.46a3.34 3.34 0 0 0 1.177-.191 2.96 2.96 0 0 0 .97-.636l1.32 1.43c-.806.922-1.982 1.383-3.53 1.383-.965 0-1.818-.186-2.56-.557-.742-.382-1.314-.906-1.717-1.574s-.604-1.426-.604-2.274c0-.837.196-1.6.588-2.258.403-.678.95-1.203 1.638-1.574.7-.382 1.48-.572 2.338-.572.837 0 1.595.18 2.274.54a3.88 3.88 0 0 1 1.59 1.558c.392.668.588 1.447.588 2.338zm-4.436-2.56c-.562 0-1.034.16-1.415.477s-.615.753-.7 1.304h4.214c-.085-.54-.318-.97-.7-1.288-.382-.33-.848-.493-1.4-.493zm8.456-.62c.297-.413.694-.726 1.193-.938.5-.212 1.092-.318 1.75-.318v2.3l-.557-.032c-.7 0-1.267.2-1.67.604-.403.392-.604.986-.604 1.78v4.04h-2.48V13.98h2.37v1.13zm11.865 1.685h2.353v4.516c-.604.456-1.304.806-2.1 1.05a8.15 8.15 0 0 1-2.401.366c-1.155 0-2.194-.244-3.117-.73-.922-.498-1.648-1.182-2.178-2.05-.52-.88-.78-1.87-.78-2.974s.26-2.088.78-2.958a5.46 5.46 0 0 1 2.194-2.051c.933-.498 1.982-.747 3.148-.747.975 0 1.86.164 2.656.493a5.26 5.26 0 0 1 2.004 1.431l-1.654 1.527c-.795-.838-1.754-1.256-2.878-1.256-.7 0-1.34.148-1.892.445s-.98.716-1.288 1.256-.46 1.16-.46 1.86c0 .7.154 1.304.46 1.845s.73.965 1.272 1.272c.55.297 1.177.445 1.876.445.742 0 1.4-.16 2.004-.477v-3.26zm12.952 1.495c0 .032-.016.255-.048.668h-6.472a2.01 2.01 0 0 0 .827 1.256c.435.306.975.46 1.622.46.445 0 .838-.064 1.177-.2a2.96 2.96 0 0 0 .97-.636l1.32 1.43c-.806.922-1.983 1.383-3.53 1.383-.964 0-1.818-.186-2.56-.557-.742-.382-1.314-.906-1.717-1.574s-.604-1.426-.604-2.274c0-.837.196-1.6.588-2.258.403-.678.95-1.203 1.638-1.574.7-.382 1.48-.572 2.337-.572.838 0 1.596.18 2.274.54s1.2.88 1.6 1.558c.393.668.6 1.447.6 2.338zm-4.437-2.56c-.562 0-1.033.16-1.415.477s-.615.753-.7 1.304h4.214c-.084-.54-.318-.97-.7-1.288-.382-.33-.848-.493-1.4-.493zm10.16 6.932c-.9 0-1.712-.186-2.433-.557a4.26 4.26 0 0 1-1.669-1.574c-.403-.668-.605-1.426-.605-2.274s.202-1.606.605-2.274.96-1.187 1.67-1.558c.72-.382 1.532-.572 2.433-.572s1.707.2 2.417.572c.7.37 1.267.9 1.67 1.558s.604 1.426.604 2.274-.2 1.606-.604 2.274a4.27 4.27 0 0 1-1.67 1.574c-.7.37-1.516.557-2.417.557zm0-2.035c.636 0 1.156-.212 1.558-.636.414-.435.62-1.012.62-1.733s-.207-1.293-.62-1.717c-.402-.435-.922-.652-1.558-.652s-1.16.217-1.574.652c-.414.424-.62.996-.62 1.717s.206 1.3.62 1.733c.413.424.938.636 1.574.636z"/><path class="logo-icon" d="M12.456 0h6.096v33.165h-6.096V0zm-.796 1.542C4.957 3.253 0 9.338 0 16.582s4.957 13.33 11.66 15.04v-6.15a9.69 9.69 0 0 1-5.83-8.9c0-3.992 2.4-7.402 5.83-8.9v-6.15zm13.477 14.15l-6.055.758 5.48 3.536a9.71 9.71 0 0 1-5.216 5.486v6.15c6.704-1.7 11.66-7.796 11.66-15.04a15.71 15.71 0 0 0-.086-1.644l-5.785.75zm3.87-6.742l-5.1 2.83c-1.034-1.8-2.635-3.253-4.56-4.088v-6.15c4.137 1.056 7.608 3.777 9.66 7.408z" /></svg></a>
+		</div>
+		<div class="header-right col d-fe-c">
+			<!-- <div class="lang-selector d-fs-c">
+					<a href="" class="lang-row lang-active d-fs-c black">
+				<div class="lang-flag d-fc-c"><img src="./img/russian.svg" alt=""></div>
+				<div class="lang-name d-fs-c"><p>Русский</p><div class="lang-icon"><img src="./img/lang-icon.svg" alt=""></div>
+				</div>
+			</a>
+				<div class="hidden-language">
+					<a href="#" class="lang-row d-fs-c black">
+						<div class="lang-flag d-fc-c"><img src="./img/english.svg" alt=""></div>
+						<div class="lang-name d-fs-c"><p>English</p><div class="lang-icon"></div>
+					</div>
+				</a>
+			</div>
+			</div> -->
+			<div data-ripple="rgba(0,0,0, 0.15)" class="menu-icon">
+				<div class="up-line"></div>
+				<div class="midle-line"></div>
+				<div class="down-line"></div>
+			</div>
+		</div>
+
+		<nav class="main-nav">
+	
+			<div class="nav-content">
+					<ul class="nav-items">
+							<li class="nav-item h2"><a class="black curent-page" href="/intergeo.html">Компания Интергео</a></li>
+							<li class="nav-item sub-item h3"><a class="black-08" href="./all-news-page.html">Новости по компании Интергео и проектам Ак-Суг и Кингаш</a></li>
+							<li class="nav-item h2"><a class="black" href="./ac-sug.html">Проект Ак-Суг</a></li>
+							<li class="nav-item h2"><a class="black " href="./kingush.html">Проект Кингаш</a></li>
+							<li class="nav-item h2"><a class="black " href="./contact-us.html">Контакты</a></li>
+						</ul>
+				<div class="social-icons">
+				<a href="#" class="social"><img src="./img/social/facebook.svg" alt=""></a>
+				<a href="#" class="social"><img src="./img/social/linkedin.svg" alt=""></a>
+				<a href="#" class="social"><img src="./img/social/at-sign.svg" alt=""></a>
+			</div>
+			</div>
+
+
+		</nav>
+	</header>
+	<div class="nav-overley"></div>
+	<section class="main-site">
+<div class="col left-col-slider">
+	<div class="left-col-slider-wrapper">
+	<div class="left-content" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.54) 4.38%, rgba(0, 0, 0, 0) 100%),url(./img/hero-img-2.jpg);">
+	
+	<h1 class="h1 c-white main-t">Компания Интергео</h1>
+	<p class="p-descr c-white main-d">ООО «УК Интергео» – российская горнодобывающая компания, образованная с целью создания одного из ведущих производителей батарейных металлов.</p>
+	</div>
+	<div class="left-content"  style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.54) 4.38%, rgba(0, 0, 0, 0) 100%),url(./img/hero-img.jpg);">
+	
+		<h1 class="h1 c-white main-t">Технологии и иновации</h1>
+		<p class="p-descr c-white main-d">В своей работе Интергео опирается на опыт как ведущих российских и международных проектных, исследовательских организаций с целью создания наиболее эффективных, технологичных предприятий.</p>
+		</div>
+	</div>
+	<div class="slider-arrows d-fs-c">
+		<div class="prev-slide arrows d-fc-c" data-ripple="rgba(0,0,0, 0.3)"><img src="./img/slider-arrow.svg" alt=""></div>
+		<div class="next-slide arrows d-fc-c" data-ripple="rgba(0,0,0, 0.3)"><img src="./img/slider-arrow.svg" alt=""></div>
+	</div>
+</div>
+<div class="col right-col">
+	<div class="container">
+		<h2 class="project-tiitle h2 black">О компании Интергео</h2>
+		<p class="p-descr black-08 m-b-0">ООО «УК Интергео» (Компания, Интергео) – российская горнодобывающая компания, образованная с целью создания одного из ведущих производителей батарейных металлов.</p>
+<div class="e-cards d-fs-c">
+	<div class="e-card">
+		<h4 class="h1 e-name">Pt</h4>
+		<span class="e-name-rus p-descr black">Платина</span>
+		<span class="e-number h3 black-02">78</span>
+		<span class="e-mass post-sub black-06">195.08</span>
+	</div>
+	<div class="e-card">
+			<h4 class="h1 e-name">Au</h4>
+			<span class="e-name-rus p-descr black">Золото</span>
+			<span class="e-number h3 black-02">79</span>
+			<span class="e-mass post-sub black-06">196.97</span>
+		</div>
+		<div class="e-card">
+				<h4 class="h1 e-name">Ag</h4>
+				<span class="e-name-rus p-descr black">Серебро</span>
+				<span class="e-number h3 black-02">47</span>
+				<span class="e-mass post-sub black-06">107.87</span>
+			</div>
+			<div class="e-card">
+					<h4 class="h1 e-name">Ru</h4>
+					<span class="e-name-rus p-descr black">Рутений</span>
+					<span class="e-number h3 black-02">44</span>
+					<span class="e-mass post-sub black-06">101.07</span>
+				</div>
+				<div class="e-card">
+						<h4 class="h1 e-name">Rh</h4>
+						<span class="e-name-rus p-descr black">Родий</span>
+						<span class="e-number h3 black-02">45</span>
+						<span class="e-mass post-sub black-06">102.91</span>
+					</div>
+					<div class="e-card">
+							<h4 class="h1 e-name">Ir</h4>
+							<span class="e-name-rus p-descr black">Иридий</span>
+							<span class="e-number h3 black-02">77</span>
+							<span class="e-mass post-sub black-06">192.22</span>
+						</div>
+						<div class="e-card">
+								<h4 class="h1 e-name">Ir</h4>
+								<span class="e-name-rus p-descr black">Иридий</span>
+								<span class="e-number h3 black-02">77</span>
+								<span class="e-mass post-sub black-06">192.22</span>
+							</div>
+							<div class="e-card">
+									<h4 class="h1 e-name">Cu</h4>
+									<span class="e-name-rus p-descr black">Медь</span>
+									<span class="e-number h3 black-02">29</span>
+									<span class="e-mass post-sub black-06">63.54</span>
+								</div>
+								<div class="e-card">
+										<h4 class="h1 e-name">Ni</h4>
+										<span class="e-name-rus p-descr black">Никель</span>
+										<span class="e-number h3 black-02">28</span>
+										<span class="e-mass post-sub black-06">58.69</span>
+									</div>
+</div>
+<p class="p-descr black-08">Компания осуществляет проект по разработке двух крупных полиметаллических месторождений: «Ак-Суг» - в Республике Тыва и «Кингаш» - в Красноярском крае</p>
+<p class="p-descr black-08">В соответствии с распоряжением Правительства Российской Федерации от № 571-р проект Интергео по созданию компании - производителя батарейных металлов и строительства горно-обогатительных комбинатов на базе медно-порфирового месторождения Ак-Суг и на базе месторождений Кингашское и Верхнекингашское включен в перечень приоритетных инвестиционных проектов, реализуемых в составе комплексного инвестиционного проекта «Енисейская Сибирь». Инвестиционная емкость проекта – 193 млрд рублей.</p>
+<p class="p-descr black-08">Реализация проекта соответствует целям, озвученным Президентом РФ В.В.Путиным в рамках ПМЭФ 6-8 июня 2019 г. о реализации промышленного потенциала Сибири и опережающем развитии Ангаро-Енисейского макрорегиона.</p>
+<p class="p-descr black-08">В марте 2019 года заключена сделка по приобретению доли Интергео в размере 9,53% группой инвесторов в составе Российского фонда прямых инвестиций, Суверенного Фонда Китая и Суверенного Фонда Саудовской Аравии. Межправительственная Российско-Китайская комиссия по инвестиционному сотрудничеству включила проект в перечень совместных российско-китайских проектов. Проекту предоставляется государственная поддержка.</p>
+<p class="p-descr black-08">Сегодня Интергео активно ведет проектирование и подготовку к строительству вышеуказанных горно-обогатительных комбинатов (ГОК) и инфраструктуры на основе внедрения новейших технологий и оборудования отечественного производства. Проекты Компании способны внести значительный вклад в реализацию национальных проектов «Производительность труда и поддержка занятости» и «Международная кооперация и экспорт». </p>
+<p class="p-descr black-08">После ввода в эксплуатацию ГОК станут локомотивом развития экономик труднодоступных регионов и будут способствовать формированию 3-й по величине зоны добычи цветных металлов после Норильска и Урала, что в свою очередь обеспечит создание не менее 10 тыс. новых рабочих мест.</p>
+<p class="p-descr black-08">В рамках реализации проекта на дальнейших этапах Компания планирует организовать на территории регионов глубокую переработку продукции ГОК – создание компонентов для аккумуляторных батарей. Предполагается, что пуск данного этапа совпадет с глобальным переходом на электромобили и позволит обеспечить необходимыми элементами как российскую, так и зарубежную промышленность.</p>
+
+<p class="p-descr black-08">Прогнозируемый долгосрочный спрос на металлы,  в частности на медь (устойчивый рост спроса со стороны предприятий электронной промышленности, коммуникационного оборудования и оборудования связи, строительной индустрии, транспорта и машиностроения) и металлы батарейной группы, позволит наиболее эффективно раскрыть потенциал месторождений компании.</p>
+
+
+				<h3 class="project-tiitle h3 black m-t-2">Импортозамещение</h3>
+				<p class="p-descr black-08">Компания ориентирована на импортозамещение и поддержку отечественных производителей. В компании функционируют подразделения по инжинирингу, исследованиям и разработкам, осуществляющие мониторинг российского рынка товаров и технологий для поиска возможностей по замещению импортных оборудования и материалов на конкурентоспособные российские аналоги. При выборе услуг и оборудования для реализации проектов при прочих равных условиях Компания отдает приоритетное значение товарам, работам и услугам россий¬ского происхождения. Для более эффективного решения задач импортозамещения компания развивает сотрудничество с заинте¬ресованными организациями, встраивая их в собственные производственные цепочки и сети поставщиков.</p>
+
+
+				<h3 class="project-tiitle h3 black m-t-2">Технологии и инновации</h3>
+				<p class="p-descr black-08">В своей работе Интергео опирается на опыт как ведущих российских и международных проектных, исследовательских организаций с целью создания наиболее эффективных, технологичных предприятий.</p>
+		<p class="p-descr black-08">Приоритетом инновационного развития Интергео являются технологии, обеспечивающие достижение стратегических целей по рентабельному увеличению добычи и повышению технологичности и эффективности переработки сырья. Компания исследует эффективные решения, адаптируя их к конкретным условиям добычи.</p>
+	<p class="p-descr black-08">При освоении месторождений будут применены слож¬ные технические и логистические решения, которые позволят повысить эффективность и минимизировать воздействие на природную  экосистему.</p>
+
+	<h3 class="project-tiitle h3 black m-t-2">Экология</h3>
+	<p class="p-descr black-08">Компания нацелена на минимизацию ущерба, причиняемого окружающей среде при разведке и добыче полезных ископаемых. Стратегические цели компании в сфере экологической безопасности направлены на недопущение экологического ущерба от хозяйственной деятельности и внедрение лучших мировых практик в области экологической безопасности.</p>
+<p class="p-descr black-08">Применение высоких стандартов системы экологического регулирования, основанной на использовании наилучших доступных технологий и внедрение инновационных технологий в деятельности Компании будет способствовать созданию удовлетворяющих современным экологическим стандартам безопасных производств.</p>
+
+	<h3 class="project-tiitle h3 black m-t-2">Социальная ответственность бизнеса</h3>
+	<p class="p-descr black-08">Устойчивый рост бизнеса и благополучие общества, в котором работает Компания, неразрывно связаны. Добиваясь своих стратегических целей, Интергео стремится создавать ценность на каждом этапе своей деятельности и вносить вклад в социально-экономическое развитие регионов присутствия и страны в целом. Принципы корпоративной социальной ответственности интегрированы в процессы принятия решений и операционную деятельность Интергео.</p>
+<p class="p-descr black-08">Ключевые приоритеты компании в сфере социальной ответственности – обеспечение максимально безопасного производства, развитие персонала, создание новых рабочих мест, сохранение культурных традиций и окружающей среды, содействие развитию регионов присутствия, учет интересов местных сообществ.</p>
+
+<p class="p-descr black-08">В рамках соглашений о сотрудничестве в социально-экономической сфере предусмотрено активное участие региональных правительств в реализации проектов социальной значимости. В планах Компании совместно с органами власти реализовать проекты по развитию критически важной инфраструктуры – строительства дорог и объектов энергосетевого хозяйства, а также оснащение профильных образовательных учреждений необходимым оборудованием в целях развития человеческого капитала, подготовки и переподготовки специалистов для будущих предприятий Компании и региона.</p>
+<p class="p-descr black-08">Реализация намеченных мероприятий обеспечит транспортное сообщение трех регионов России (Республики Тыва, Красноярского края и Иркутской области) и транспортную связь северных районов Республики Тыва с сетью железных дорог, а также подключение отдаленных населенных пунктов к постоянным сетям электроснабжения, что позволит повысить показатели экономического развития региона в целом, включая рост ВРП.</p>
+<p class="p-descr black-08">Сочетание первоклассных активов, грамотного менеджмента, правильного времени реализации и мер государственной поддержки будет способствовать успеху проекта Интергео..</p>
+
+
+<h2 class="contacts-tiitle h2 black m-t-2">Контакты</h2>
+<ul class="nav-contacts d-fs-c">
+	<li data-ripple="rgba(0,0,0, 0.2)" class="black-06 nav-contacts-link nav-items-active" data-select="1">ООО «УК «Интергео»</li>
+	<li data-ripple="rgba(0,0,0, 0.2)" class="black-06 nav-contacts-link" data-select="2">Красноярский филиал</li>
+	<li class="selector-nav-contacts"></li>
+</ul>
+<div class="contacts-tab">
+<div class="tab-contacts active-tab" data-tab="1">
+<div class="contacts-row d-fs-s">
+<h4 class="c-row-tiitle h5 black-08">Часы работы</h4>
+<p class="c-row-descr p-sub post-descr black-06">Пн - пт 9: 00–20: 00, сб 9: 00–18: 00</p>					
+</div>
+<div class="contacts-row d-fs-s">
+	<h4 class="c-row-tiitle h5 black-08">Адрес офиса</h4>
+	<p class="c-row-descr p-sub post-descr black-06">г. Москва Тверской бульвар 13 с.1 офис 654</p>					
+</div>
+<div class="contacts-row d-fs-s">
+		<h4 class="c-row-tiitle h5 black-08" >Телефон</h4>
+		<a href="tel:+7 (495) 287 29 51" class="c-row-descr p-sub contacts-link" title="Позвонить">+7 (495) 287 29 51</a>					
+	</div>					
+	<div class="contacts-row d-fs-s">
+		<h4 class="c-row-tiitle h5 black-08">e-mail</h4>
+		<a href="mailto:info@mmcintergeo.ru" class="c-row-descr p-sub contacts-link" title="Написать сообщение">info@mmcintergeo.ru</a>					
+	</div>
+</div>
+
+<div class="tab-contacts" data-tab="2">
+	<div class="contacts-row d-fs-s">
+		<h4 class="c-row-tiitle h5 black-08">Часы работы</h4>
+		<p class="c-row-descr p-sub post-descr black-06">Пн - пт 9: 00–20: 00, сб 9: 00–18: 00</p>					
+	</div>
+	<div class="contacts-row d-fs-s">
+			<h4 class="c-row-tiitle h5 black-08">Адрес офиса</h4>
+			<p class="c-row-descr p-sub post-descr black-06">г.Красноярск ул Партизана Железняка 35А</p>					
+		</div>
+		<div class="contacts-row d-fs-s">
+				<h4 class="c-row-tiitle h5 black-08" >Телефон</h4>
+				<a href="tel:+8 (391) 200-29-51" class="c-row-descr p-sub contacts-link" title="Позвонить">+8 (391) 200-29-51</a>					
+			</div>					
+			<div class="contacts-row d-fs-s">
+				<h4 class="c-row-tiitle h5 black-08">e-mail</h4>
+				<a href="mailto:krsk@mmcintergeo.ru" class="c-row-descr p-sub contacts-link" title="Написать сообщение">krsk@mmcintergeo.ru</a>					
+			</div>
+		</div>
+	</div>
+	<div id="map" class="map"></div>
+
+	</div>
+	<footer class="footer">
+		<div class="container">
+				<div class="footer-cols">
+					<div class="footer-col">
+						<h5 class="h5 footer-tittle c-white">Информация</h5>
+						<div class="footer-links">
+							<a href="" class="c-white-06 footer-link">УК Интергео</a>
+							<a href="" class="c-white-06 footer-link">Проект Ак-Суг</a>
+							<a href="" class="c-white-06 footer-link">Проект Кингаш</a>
+							<a href="" class="c-white-06 footer-link">Условия использования</a>
+						</div>
+					</div>
+					<div class="footer-col">
+						<h5 class="h5 footer-tittle c-white">Проектные новости</h5>
+						<div class="footer-links">
+							<a href="" class="c-white-06 footer-link">Проект Ак-Суг</a>
+							<a href="" class="c-white-06 footer-link">Проект Кингаш</a>
+						</div>
+					</div>
+					<div class="footer-col">
+						<h5 class="h5 footer-tittle c-white">Контакты</h5>
+						<div class="footer-links">
+							<a href="" class="c-white-06 footer-link">Контакты</a>
+							<a href="" class="c-white-06 footer-link">Обратная связь</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-row d-fs-c">
+					<div class="footer-logo">
+						<img src="./img/white-logo.svg" alt="">
+					</div>
+					<p class="copiright p-small c-white">© 2019, УК Интергео</p>
+					<div class="f-social-row d-fs-c">
+						<a href="" class="f-social-link d-fc-c"><img src="./img/social/white-facebook.svg" alt=""></a>
+						<a href="" class="f-social-link d-fc-c"><img src="./img/social/white-linkedin.svg" alt=""></a>
+						<a href="" class="f-social-link d-fc-c"><img src="./img/social/white-at-sign.svg" alt=""></a>
+					</div>
+				</div>
+		</div>
+	</footer>
+</div>
+	</section>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=93fece7a-9fe4-47c6-80de-eaea41ec7d4a&lang=ru_RU" type="text/javascript" defer></script>
+<script src="./js/siema.min.js"></script>
+<script src="./js/map.js"></script>
+<script src="./js/script.js"></script>
+</html>

@@ -1,88 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function(){
-	ymaps.ready(function () {
-var myMap = new ymaps.Map('map', {
-	center: [55.76054506898901,37.5994625],
-zoom: 13,
-controls: ['zoomControl'],
-behaviors: ['drag']
-}),
 
-// Создаём макет содержимого.
-MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-'<div style="background-color: #414141; font-weight: bold;">$[properties.iconContent]</div>'
-),
-
-myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-hintContent: '<div class="hint-map">г. Москва Тверской бульвар 13 с.1 офис 654</div>',
-}, {
-
-
-iconLayout: 'default#image',
-
-iconImageHref: './img/map-icon.svg',
-
-iconImageSize: [60, 60],
-iconImageOffset: [-35, -35]
-}),
-myPlacemark3 = new ymaps.Placemark([56.03553156871068,92.93068899999997], {
-	hintContent: '<div class="hint-map">г.Красноярск ул Партизана Железняка 35А</div>',
-
-}, {
-		iconLayout: 'default#image',
-		iconImageHref: './img/map-icon.svg',
-		iconImageSize: [60, 60],
-		iconImageOffset: [-35, -35]
-	});
-
-	myMap.geoObjects
-	.add(myPlacemark)
-
-$(".nav-contacts-link").on("click",function(e){
-	$('.nav-contacts-link').removeClass('nav-items-active')
-	$(this).addClass('nav-items-active');
-
-	var activeWidth = $(this).innerWidth();
-	var itemPos = $(this).position();
-	$(".selector-nav-contacts").css({
-		"left":itemPos.left + "px", 
-		"width": activeWidth + "px"
-	});
-
-	$('.tab-contacts').removeClass('active-tab');
-	$('[data-tab='+$(this).attr('data-select')+']').addClass('active-tab');
-	if($(this).attr('data-select')==1){
-		myMap.geoObjects
-		.remove(myPlacemark3)
-		myMap.setCenter([55.76054506898901,37.5994625], 13, {
-			checkZoomRange: true
-	});
-		myMap.geoObjects
-		.add(myPlacemark)
-	}
-	else{
-		myMap.geoObjects
-		.remove(myPlacemark)
-		myMap.setCenter([56.03553156871068,92.93068899999997], 13,{});
-		myMap.geoObjects
-		.add(myPlacemark3)
-	}
-	
-})
-
-});
-
-
-
-
-
-function getScrollBarWidth () {
-    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
-        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
-    $outer.remove();
-    return 100 - widthWithScroll;
-};
-var scrollWidth = getScrollBarWidth ();
 
 $('.menu-icon').on('click',function(event){
 	$(this).toggleClass('menu-icon-active');
@@ -138,33 +56,8 @@ $(window).scroll(function(event) {
 });
 
 
-$(".selector-nav-contacts").css({
-	"left":$('.nav-items-active').position().left + "px", 
-	"width": $('.nav-items-active').innerWidth() + "px"
-});
 
-if($('.col').hasClass('left-col-slider')){
-var heroSlider = new Siema({
-	selector: '.left-col-slider-wrapper',
-	duration: 200,
-	easing: 'ease-out',
-	perPage: 1,
-	startIndex: 0,
-	draggable: true,
-	multipleDrag: false,
-	threshold: 20,
-	loop: true,
-	rtl: false,
-  });
-//   document.querySelector('.prev-slide').addEventListener('click', () => heroSlider.prev());
-// document.querySelector('.next-slide').addEventListener('click', () => heroSlider.next());
-$('.prev-slide').click(function() {
-	heroSlider.prev()
-})
-$('.next-slide').click(function() {
-	heroSlider.next()
-})
-}
+
 
 
 headers = $('.ms-rtestate-field h2'),
@@ -193,96 +86,7 @@ $('[data-anchor=true]').click(function() {
 });
 
 
-//modal-js
-function getScrollBarWidth () {
-	var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
-			widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
-	$outer.remove();
-	return 100 - widthWithScroll;
-};
-var scrollWidth = getScrollBarWidth ();
-
-// $('#scroll-check').remove();
-
-
-
-$('[data-open-modal]').on('click',function(event){
-event.preventDefault();
-$('[data-modal='+ $(this).attr('data-open-modal') +']').addClass('open-modal');
-$('[data-modal='+ $(this).attr('data-open-modal') +']').css({
-	"display":"block"
-})
-$('body').css({
-	"overflow":"hidden",
-	"padding-right":scrollWidth + "px"
-})
-$('body').append('<div class="overlay"></div>');
-$('.header').css('padding-right',scrollWidth+'px')
-if(window.matchMedia("(min-width: 1024px)").matches){
-$('.left-col').css('width',$('.left-col').innerWidth()-scrollWidth/2 +'px')
-}
-
-
-})
-$('.modal').on('click',function(event){
-event.stopPropagation();
-$('.modal').removeClass('open-modal')
-$('.modal').css({
-	"display":"none"
-})
-$('body').css({
-	"overflow":"auto",
-	"padding-right":0 + "px"
-})
-$('.header').css('padding-right',0+'px')
-if(window.matchMedia("(min-width: 1024px)").matches){
-	$('.left-col').attr('style','')
-	}
-
-
-}).children()
-	.click(function(e){ 
-			e.stopPropagation();
-})
-
-$('.close-button').on('click',function(event){
-event.stopPropagation();
-$('.modal').removeClass('open-modal')
-$('.modal').css({
-	"display":"none"
-})
-$('body').css({
-	"overflow":"auto",
-	"padding-right":0 + "px"
-})
-$('.header').css('padding-right',0+'px')
-if(window.matchMedia("(min-width: 1024px)").matches){
-	$('.left-col').attr('style','')
-	}
-})
-
-jQuery(document).on('keyup',function(evt) {
-if (evt.keyCode == 27) {
-	 if($('.modal').has('onen-modal')){
-		$('.modal').removeClass('open-modal')
-		$('.modal').css({
-			"display":"none"
-		})
-		$('body').css({
-			"overflow":"auto",
-			"padding-right":0 + "px"
-		})
-		$('.header').css('padding-right',0+'px')
-		if(window.matchMedia("(min-width: 1024px)").matches){
-			$('.left-col').attr('style','')
-			}
-	 }
-}
-});
-
-
 //ripple
-  // MAD-RIPPLE // (jQ+CSS)
   $(document).on("mousedown", "[data-ripple]", function(e) {
     
     var $self = $(this);
