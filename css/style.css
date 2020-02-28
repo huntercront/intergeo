@@ -1429,6 +1429,7 @@ opacity: 1;
 .cookies-read-more{
 	font-size: 14px;
 	margin-right: 1rem;
+	margin-bottom: 0;
 }
 .cookies-read-more .more-link-icon{
 flex: 0 0 12px;
