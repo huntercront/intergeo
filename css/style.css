@@ -931,7 +931,7 @@ width: 120px;
 		width: 228px;
 		flex: 0 0 228px;
 		padding:0 8px; 
-		margin-bottom: 2rem;
+		margin-bottom: 0rem;
 	}
 	.news-card:first-child{
 		margin-left: 3%;
